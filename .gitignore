@@ -14,3 +14,4 @@ app/dist/
 .claude-flow/
 reports/m2/*predictions*.npz
 reports/m2/*predictions*.npz
+reports/m3/*predictions*.npz

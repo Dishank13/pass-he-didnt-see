@@ -4,7 +4,7 @@ A mini TacticAI: given where every visible player was (StatsBomb 360 freeze fram
 what was the best passing option, and how much expected value did the actual pass
 gain or lose?
 
-**Status:** M0 (data), M1 (corners) and M2 (open-play pass value) complete. Next: M3 velocity study.
+**Status:** M0–M3 complete (data, corners, pass value, velocity study). Next: M4 interactive demo.
 
 ### M0 in numbers
 - 426 matches, 1.36M StatsBomb 360 freeze frames, ~25M player positions
@@ -39,6 +39,16 @@ See `notebooks/01_corners.ipynb` and `docs/learning/M1_walkthrough.md`.
 
 See `notebooks/02_pass_value.ipynb` and `docs/learning/M2_walkthrough.md`.
 
+### M3 in numbers (SkillCorner broadcast tracking, 20 A-League matches, 12.9k passes)
+- **What a 360 snapshot loses** for predicting pass completion: ΔAUC **+0.006** [0.003, 0.009] for full tracking
+  (0.864) vs positions of on-screen players only (0.858).
+- **All of that gain comes from receiver and passer movement** (+0.006). Defender velocities add nothing measurable,
+  and a naive velocity-projected physics model is *worse* than a static one (−0.021 AUC).
+- **External validation:** the M2 completion model trained only on StatsBomb 360 transfers to A-League broadcast
+  tracking with AUC 0.841 and ECE 0.010.
+
+See `notebooks/03_velocity_study.ipynb` and `docs/learning/M3_walkthrough.md`.
+
 ## Quickstart
 ```bash
 python -m venv .venv
@@ -51,6 +61,7 @@ python -m venv .venv
 .venv/Scripts/python scripts/build_pass_dataset.py
 .venv/Scripts/python scripts/train_completion.py  # and train_value.py; --split test for Euro 2024
 .venv/Scripts/python scripts/score_passes.py      # out-of-fold EV for every option (~1 h on CPU)
+.venv/Scripts/python scripts/velocity_study.py    # downloads SkillCorner open data (~180 MB after conversion)
 .venv/Scripts/python -m pytest
 ```
 

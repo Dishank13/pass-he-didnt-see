@@ -1,0 +1,29 @@
+15,937 passes from 20 matches; completion 0.841
+target on screen 0.817, passer on screen 0.972, median players on screen 15
+analysis sample (passer and target on screen): 12,867, completion 0.858
+  physics|full_vel                 logloss 0.314 [0.301, 0.328]  auc 0.832 [0.822, 0.843]  ece 0.006
+  lgbm|full_vel                    logloss 0.292 [0.278, 0.306]  auc 0.864 [0.854, 0.872]  ece 0.008
+  physics_nested|full_vel          logloss 0.299 [0.286, 0.313]  auc 0.854 [0.844, 0.863]  ece 0.007
+  physics|full_pos                 logloss 0.300 [0.287, 0.313]  auc 0.853 [0.843, 0.862]  ece 0.005
+  lgbm|full_pos                    logloss 0.295 [0.282, 0.309]  auc 0.859 [0.850, 0.868]  ece 0.008
+  physics|vis_vel                  logloss 0.319 [0.306, 0.332]  auc 0.826 [0.815, 0.835]  ece 0.003
+  lgbm|vis_vel                     logloss 0.293 [0.279, 0.307]  auc 0.863 [0.853, 0.871]  ece 0.007
+  physics_nested|vis_vel           logloss 0.304 [0.291, 0.319]  auc 0.847 [0.837, 0.856]  ece 0.005
+  physics|vis_pos                  logloss 0.304 [0.291, 0.318]  auc 0.847 [0.837, 0.855]  ece 0.005
+  lgbm|vis_pos                     logloss 0.296 [0.282, 0.310]  auc 0.858 [0.849, 0.867]  ece 0.005
+  m2_statsbomb_transfer|full_pos   logloss 0.314 [0.299, 0.328]  auc 0.842 [0.831, 0.851]  ece 0.025
+  m2_statsbomb_transfer|vis_pos    logloss 0.310 [0.297, 0.324]  auc 0.841 [0.830, 0.850]  ece 0.010
+  SkillCorner xpass_completion (their model, reference; n=12209): auc 0.900 [0.891, 0.908]
+  physics        velocity (all players)                           dlogloss 0.0140 [0.0115, 0.0169]  dAUC -0.021 [-0.025, -0.017]
+  physics        velocity (on-screen players)                     dlogloss 0.0145 [0.0117, 0.0175]  dAUC -0.021 [-0.026, -0.017]
+  physics        visibility (no velocity)                         dlogloss -0.0047 [-0.0072, -0.0025]  dAUC 0.006 [0.003, 0.009]
+  physics        visibility (with velocity)                       dlogloss -0.0051 [-0.0081, -0.0027]  dAUC 0.007 [0.004, 0.010]
+  physics        total: full tracking vs 360-like                 dlogloss 0.0093 [0.0059, 0.0127]  dAUC -0.015 [-0.020, -0.010]
+  lgbm           velocity (all players)                           dlogloss -0.0036 [-0.0055, -0.0016]  dAUC 0.004 [0.002, 0.007]
+  lgbm           velocity (on-screen players)                     dlogloss -0.0033 [-0.0050, -0.0014]  dAUC 0.005 [0.002, 0.007]
+  lgbm           visibility (no velocity)                         dlogloss -0.0006 [-0.0025, 0.0011]  dAUC 0.001 [-0.001, 0.004]
+  lgbm           visibility (with velocity)                       dlogloss -0.0009 [-0.0031, 0.0012]  dAUC 0.001 [-0.001, 0.004]
+  lgbm           total: full tracking vs 360-like                 dlogloss -0.0041 [-0.0069, -0.0016]  dAUC 0.006 [0.003, 0.009]
+  physics_nested velocity added to static margins (all players)   dlogloss -0.0005 [-0.0015, 0.0004]  dAUC 0.001 [-0.000, 0.002]
+  physics_nested velocity added to static margins (on-screen)     dlogloss 0.0001 [-0.0008, 0.0013]  dAUC 0.000 [-0.001, 0.001]
+-> C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\reports\m3

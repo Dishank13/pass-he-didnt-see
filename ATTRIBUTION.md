@@ -9,4 +9,6 @@ event data and StatsBomb 360 freeze frames.
 - Raw data is not redistributed in this repository. `scripts/download_data.py` fetches it.
 - Figures and demo outputs derived from the data carry a "Data: StatsBomb" credit.
 
-Tracking data used in the velocity study (M3) is credited in that milestone's report.
+The velocity study (M3) uses **SkillCorner Open Data** (https://github.com/SkillCorner/opendata),
+broadcast tracking and dynamic events from the 2024/25 A-League, released under the MIT licence.
+Data: SkillCorner. Raw files are not redistributed here; `phds.data.skillcorner.fetch_match` downloads them.
