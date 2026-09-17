@@ -3,6 +3,5 @@
   "installCommand": "cd app && npm ci",
   "buildCommand": "cd app && npm run build",
   "outputDirectory": "app/dist",
-  "framework": null,
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- app vercel.json .vercelignore"
+  "framework": null
 }
