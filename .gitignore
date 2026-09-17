@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/raw/
+data/interim/
+data/processed/
+app/node_modules/
+app/dist/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+*.log
+.claude-flow/
