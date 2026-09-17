@@ -15,8 +15,6 @@ app/dist/
 reports/m2/*predictions*.npz
 reports/m2/*predictions*.npz
 reports/m3/*predictions*.npz
-# Blind-test answer key: regenerate with scripts/export_demo.py; commit only after data collection
-reports/m4/eval_key.json
 
 .vercel
 .env*

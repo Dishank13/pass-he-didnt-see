@@ -1,0 +1,365 @@
+{
+ "seed": 2026,
+ "key": {
+  "0e2b5aa0-7c00-48de-a80a-a8009d6b2b65": {
+   "model_option": "A",
+   "ev_model": 0.0014,
+   "ev_actual": -0.0029,
+   "delta_ev": 0.0043,
+   "third": "build-up",
+   "competition": "Ligue 1 2022/2023",
+   "outcome": "Complete"
+  },
+  "1afda725-f220-49bd-ac06-5c048da702f3": {
+   "model_option": "B",
+   "ev_model": 0.0011,
+   "ev_actual": -0.0028,
+   "delta_ev": 0.0039,
+   "third": "build-up",
+   "competition": "UEFA Euro 2020",
+   "outcome": "Complete"
+  },
+  "a6f0c524-4e52-486d-ad02-a11c09fb8784": {
+   "model_option": "B",
+   "ev_model": 0.0001,
+   "ev_actual": -0.0106,
+   "delta_ev": 0.0107,
+   "third": "build-up",
+   "competition": "UEFA Women's Euro 2022",
+   "outcome": "Complete"
+  },
+  "1ee633d2-6fb4-4cde-a1f0-0a5818e7bc2c": {
+   "model_option": "A",
+   "ev_model": 0.0067,
+   "ev_actual": -0.0,
+   "delta_ev": 0.0067,
+   "third": "build-up",
+   "competition": "1. Bundesliga 2023/2024",
+   "outcome": "Complete"
+  },
+  "e60dad88-70f7-4951-a953-22800ba16feb": {
+   "model_option": "B",
+   "ev_model": 0.0089,
+   "ev_actual": 0.0012,
+   "delta_ev": 0.0077,
+   "third": "build-up",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "1da65340-0b7b-4ea3-94d3-c062f5fa89fe": {
+   "model_option": "B",
+   "ev_model": -0.0005,
+   "ev_actual": -0.0056,
+   "delta_ev": 0.0051,
+   "third": "build-up",
+   "competition": "La Liga 2020/2021",
+   "outcome": "Complete"
+  },
+  "0275aee7-cd32-486a-9299-6baaad9f9ac8": {
+   "model_option": "B",
+   "ev_model": 0.0096,
+   "ev_actual": 0.006,
+   "delta_ev": 0.0036,
+   "third": "build-up",
+   "competition": "UEFA Euro 2024",
+   "outcome": "Complete"
+  },
+  "2229ea66-8697-48e6-b9c9-9664c00851aa": {
+   "model_option": "B",
+   "ev_model": 0.0101,
+   "ev_actual": 0.0058,
+   "delta_ev": 0.0042,
+   "third": "build-up",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "93b1700a-9aa8-436a-b356-5c1255fe07dc": {
+   "model_option": "A",
+   "ev_model": 0.0085,
+   "ev_actual": 0.0011,
+   "delta_ev": 0.0074,
+   "third": "build-up",
+   "competition": "UEFA Euro 2020",
+   "outcome": "Complete"
+  },
+  "c91ecbc8-cfd7-45d1-9305-80b68f469d77": {
+   "model_option": "B",
+   "ev_model": 0.0236,
+   "ev_actual": 0.0165,
+   "delta_ev": 0.007,
+   "third": "build-up",
+   "competition": "1. Bundesliga 2023/2024",
+   "outcome": "Complete"
+  },
+  "e139de85-b0eb-4260-81c8-5a594b16e930": {
+   "model_option": "A",
+   "ev_model": 0.0087,
+   "ev_actual": 0.0046,
+   "delta_ev": 0.0042,
+   "third": "build-up",
+   "competition": "Women's World Cup 2023",
+   "outcome": "Complete"
+  },
+  "eaadf16a-9b39-4a30-a4a6-b2ddec6252db": {
+   "model_option": "A",
+   "ev_model": 0.0093,
+   "ev_actual": 0.0034,
+   "delta_ev": 0.006,
+   "third": "build-up",
+   "competition": "UEFA Women's Euro 2025",
+   "outcome": "Complete"
+  },
+  "7dbf35e2-8c2a-4bfa-a762-c8b430cffff0": {
+   "model_option": "A",
+   "ev_model": 0.0042,
+   "ev_actual": -0.0032,
+   "delta_ev": 0.0074,
+   "third": "build-up",
+   "competition": "Ligue 1 2021/2022",
+   "outcome": "Complete"
+  },
+  "ba558bff-6435-4163-8136-5ae02ec425d3": {
+   "model_option": "A",
+   "ev_model": 0.007,
+   "ev_actual": -0.0014,
+   "delta_ev": 0.0084,
+   "third": "build-up",
+   "competition": "Ligue 1 2022/2023",
+   "outcome": "Complete"
+  },
+  "f509a52b-7d6c-4844-a24e-21b302ef2361": {
+   "model_option": "A",
+   "ev_model": 0.0042,
+   "ev_actual": 0.0005,
+   "delta_ev": 0.0037,
+   "third": "build-up",
+   "competition": "UEFA Euro 2024",
+   "outcome": "Complete"
+  },
+  "d2f6efb8-1e67-4116-aaba-7376e0fa96ae": {
+   "model_option": "B",
+   "ev_model": 0.0117,
+   "ev_actual": 0.0069,
+   "delta_ev": 0.0048,
+   "third": "build-up",
+   "competition": "UEFA Euro 2024",
+   "outcome": "Complete"
+  },
+  "f2f06b7f-97a9-4c98-ba41-ecdeb6b258e4": {
+   "model_option": "A",
+   "ev_model": 0.0213,
+   "ev_actual": 0.0063,
+   "delta_ev": 0.0149,
+   "third": "build-up",
+   "competition": "UEFA Women's Euro 2022",
+   "outcome": "Complete"
+  },
+  "f4a383b5-11cb-446b-b92f-e81351ff257d": {
+   "model_option": "A",
+   "ev_model": -0.0026,
+   "ev_actual": -0.0065,
+   "delta_ev": 0.004,
+   "third": "build-up",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "7318a40f-cf30-4f2e-a834-895399b6386e": {
+   "model_option": "B",
+   "ev_model": 0.0134,
+   "ev_actual": 0.0088,
+   "delta_ev": 0.0046,
+   "third": "build-up",
+   "competition": "Ligue 1 2021/2022",
+   "outcome": "Complete"
+  },
+  "62125620-d355-4e07-ac7a-ce117b28af9f": {
+   "model_option": "B",
+   "ev_model": 0.0091,
+   "ev_actual": 0.004,
+   "delta_ev": 0.0051,
+   "third": "build-up",
+   "competition": "La Liga 2020/2021",
+   "outcome": "Complete"
+  },
+  "b20fec60-c3ba-4750-9b4a-284c066eac96": {
+   "model_option": "B",
+   "ev_model": 0.0195,
+   "ev_actual": 0.0146,
+   "delta_ev": 0.0048,
+   "third": "final third",
+   "competition": "Women's World Cup 2023",
+   "outcome": "Complete"
+  },
+  "7cc272b0-b6bf-41be-9f91-356f5095d98c": {
+   "model_option": "A",
+   "ev_model": 0.029,
+   "ev_actual": 0.0181,
+   "delta_ev": 0.011,
+   "third": "final third",
+   "competition": "1. Bundesliga 2023/2024",
+   "outcome": "Complete"
+  },
+  "591fbc59-ed52-4ea5-99e3-7269d0bacb54": {
+   "model_option": "A",
+   "ev_model": 0.0181,
+   "ev_actual": 0.0102,
+   "delta_ev": 0.0079,
+   "third": "final third",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "aa73c962-3dc7-499b-8abc-c13d1de4a71f": {
+   "model_option": "A",
+   "ev_model": 0.0195,
+   "ev_actual": 0.0153,
+   "delta_ev": 0.0042,
+   "third": "final third",
+   "competition": "Ligue 1 2022/2023",
+   "outcome": "Complete"
+  },
+  "8a504282-77c9-42a1-a3a0-87bcd42ce43a": {
+   "model_option": "B",
+   "ev_model": 0.0123,
+   "ev_actual": 0.0048,
+   "delta_ev": 0.0074,
+   "third": "final third",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "41cd22f8-a203-44f9-bf69-0b82809c1d8a": {
+   "model_option": "A",
+   "ev_model": 0.027,
+   "ev_actual": 0.021,
+   "delta_ev": 0.006,
+   "third": "final third",
+   "competition": "UEFA Women's Euro 2022",
+   "outcome": "Complete"
+  },
+  "815502e3-b956-453a-bbea-f90a3238b50b": {
+   "model_option": "A",
+   "ev_model": 0.0149,
+   "ev_actual": 0.0088,
+   "delta_ev": 0.0061,
+   "third": "final third",
+   "competition": "La Liga 2020/2021",
+   "outcome": "Complete"
+  },
+  "d93c88c1-b334-4717-9c1f-7f435a6d43f7": {
+   "model_option": "A",
+   "ev_model": 0.0857,
+   "ev_actual": 0.0457,
+   "delta_ev": 0.04,
+   "third": "final third",
+   "competition": "Ligue 1 2021/2022",
+   "outcome": "Incomplete"
+  },
+  "5a37e2f0-07a6-465d-8a67-e2aac771cd5e": {
+   "model_option": "B",
+   "ev_model": 0.0321,
+   "ev_actual": 0.0229,
+   "delta_ev": 0.0092,
+   "third": "final third",
+   "competition": "1. Bundesliga 2023/2024",
+   "outcome": "Complete"
+  },
+  "c5fd12d7-1442-40e9-872c-42fd5667af0b": {
+   "model_option": "A",
+   "ev_model": 0.0192,
+   "ev_actual": 0.012,
+   "delta_ev": 0.0071,
+   "third": "final third",
+   "competition": "Ligue 1 2021/2022",
+   "outcome": "Complete"
+  },
+  "4e282860-4ce8-401b-a525-d90d20298171": {
+   "model_option": "A",
+   "ev_model": 0.0416,
+   "ev_actual": 0.0209,
+   "delta_ev": 0.0207,
+   "third": "final third",
+   "competition": "UEFA Women's Euro 2022",
+   "outcome": "Complete"
+  },
+  "6f84a341-68a6-481b-90c1-3ba130e1a962": {
+   "model_option": "A",
+   "ev_model": 0.0238,
+   "ev_actual": 0.009,
+   "delta_ev": 0.0148,
+   "third": "final third",
+   "competition": "UEFA Euro 2020",
+   "outcome": "Complete"
+  },
+  "c3c15f6c-a582-4ae6-b77a-9ce4c5314794": {
+   "model_option": "A",
+   "ev_model": 0.0113,
+   "ev_actual": 0.0074,
+   "delta_ev": 0.0039,
+   "third": "final third",
+   "competition": "1. Bundesliga 2023/2024",
+   "outcome": "Complete"
+  },
+  "efd22521-7dc5-47b1-b325-ad4b9527eb5d": {
+   "model_option": "B",
+   "ev_model": 0.0144,
+   "ev_actual": 0.0043,
+   "delta_ev": 0.0101,
+   "third": "final third",
+   "competition": "UEFA Euro 2020",
+   "outcome": "Complete"
+  },
+  "0ca742b4-ac9b-4b57-8e3c-d37c1872cde3": {
+   "model_option": "B",
+   "ev_model": 0.013,
+   "ev_actual": 0.0019,
+   "delta_ev": 0.0111,
+   "third": "final third",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  },
+  "161c2a3e-27d6-4c58-aa3f-35080484740f": {
+   "model_option": "B",
+   "ev_model": 0.0282,
+   "ev_actual": 0.0133,
+   "delta_ev": 0.0148,
+   "third": "final third",
+   "competition": "UEFA Euro 2024",
+   "outcome": "Complete"
+  },
+  "19c4b226-be7e-4d5a-a03e-0099018c92d2": {
+   "model_option": "B",
+   "ev_model": 0.0149,
+   "ev_actual": 0.0079,
+   "delta_ev": 0.007,
+   "third": "final third",
+   "competition": "Women's World Cup 2023",
+   "outcome": "Incomplete"
+  },
+  "711f35fb-466a-4a80-96ea-9b2105ab9729": {
+   "model_option": "B",
+   "ev_model": 0.0353,
+   "ev_actual": 0.0191,
+   "delta_ev": 0.0162,
+   "third": "final third",
+   "competition": "UEFA Women's Euro 2022",
+   "outcome": "Incomplete"
+  },
+  "e916b2ec-edd0-42e3-8f89-4a374d41b807": {
+   "model_option": "B",
+   "ev_model": 0.0162,
+   "ev_actual": 0.0112,
+   "delta_ev": 0.005,
+   "third": "final third",
+   "competition": "La Liga 2020/2021",
+   "outcome": "Complete"
+  },
+  "497179a3-e39f-4676-9beb-f770579af001": {
+   "model_option": "B",
+   "ev_model": 0.0743,
+   "ev_actual": 0.037,
+   "delta_ev": 0.0374,
+   "third": "final third",
+   "competition": "FIFA World Cup 2022",
+   "outcome": "Complete"
+  }
+ }
+}

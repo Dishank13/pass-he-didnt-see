@@ -20,8 +20,9 @@ not just to the model. It is **not** a test of whether the suggestions would hav
   - Stratified: 20 in build-up (passer x < 80) and 20 in the final third.
 - Two passes are drawn from the passer, labelled A and B, with identical chalk styling. Which label is the
   model's option was randomised once (seed 2026) and balanced (20 / 20). The answer key lives in
-  `reports/m4/eval_key.json`, is never served to raters, and is gitignored until data collection ends (a public
-  repository would otherwise reveal it). `scripts/export_demo.py` regenerates it deterministically.
+  `reports/m4/eval_key.json` and is never served by the app. It is committed to the **private** repository so it
+  survives local cleanup; if the repository is ever made public before data collection ends, remove it first
+  (`scripts/export_demo.py` regenerates it deterministically from the processed data).
 - No outcome, score, names, teams, minute or model numbers are shown.
 
 ## Raters
