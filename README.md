@@ -13,7 +13,7 @@ for 426 matches, plus SkillCorner broadcast tracking to measure what those snaps
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![LightGBM](https://img.shields.io/badge/LightGBM-02569B?style=flat-square)
 ![React](https://img.shields.io/badge/React_+_TypeScript-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![Tests](https://img.shields.io/badge/tests-68_passing-2EA043?style=flat-square&logo=pytest&logoColor=white)
+![Tests](https://img.shields.io/badge/pytest-68_tests-2EA043?style=flat-square&logo=pytest&logoColor=white)
 ![CPU only](https://img.shields.io/badge/runs_on-a_laptop_CPU-475569?style=flat-square)
 
 <a href="https://pass-he-didnt-see.vercel.app"><img src="docs/img/demo-explore.png" alt="Demo app: exploring passing options in the Euro 2024 final" width="100%" /></a>
