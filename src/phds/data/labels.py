@@ -117,6 +117,40 @@ def link_by_assignment(
     return LinkResult(j, float(dist[after_actor, j]), float(regret), status)
 
 
+def assignment_excess_costs(
+    before_xy: np.ndarray, after_xy: np.ndarray, after_actor: int, max_move: float
+) -> np.ndarray:
+    """For each candidate j in `before_xy`: extra total displacement (yd) if the actor
+    were player j, relative to the best candidate. Basis for soft labels.
+
+    Forcing actor -> j is solved as cost[actor, j] + an optimal assignment of everyone
+    else with row `actor` and column j removed. The best candidate has excess 0. The
+    regret used in `link_by_assignment` is the second-smallest excess.
+    """
+    before_xy = np.asarray(before_xy, dtype=float).reshape(-1, 2)
+    after_xy = np.asarray(after_xy, dtype=float).reshape(-1, 2)
+    cost = np.minimum(np.linalg.norm(after_xy[:, None] - before_xy[None], axis=-1), max_move)
+    other_rows = [i for i in range(len(after_xy)) if i != after_actor]
+    totals = np.empty(len(before_xy))
+    for j in range(len(before_xy)):
+        other_cols = [k for k in range(len(before_xy)) if k != j]
+        rest = cost[np.ix_(other_rows, other_cols)]
+        totals[j] = cost[after_actor, j] + (_assignment_cost(rest) if rest.size else 0.0)
+    return totals - totals.min()
+
+
+def soft_label(excess: np.ndarray, temperature: float = 1.0) -> np.ndarray:
+    """Turn excess costs (yd) into a probability distribution over candidates.
+
+    p_j ∝ exp(-excess_j / T). T is a hyperparameter: T -> 0 recovers the hard label,
+    large T spreads the target over plausible alternatives.
+    """
+    z = -np.asarray(excess, dtype=float) / max(temperature, 1e-6)
+    z -= z.max()
+    p = np.exp(z)
+    return p / p.sum()
+
+
 def timestamp_seconds(ts: pd.Series) -> pd.Series:
     """'HH:MM:SS.mmm' (clock within a period) -> float seconds."""
     parts = ts.str.split(":", expand=True).astype(float)
@@ -169,6 +203,8 @@ def build_corner_dataset(
       nearest_idx / nearest_status      the nearest-player method, always computed
       assign_idx / assign_status        the assignment method, when a touch frame exists
       shot_within     the corner team shot within `shot_window_s` s in the same possession
+      soft_player_idx / soft_excess     candidates of the toucher's team and their excess
+                      cost in yd (0 = best). Feed to `soft_label` for a training target.
     """
     ev = events.sort_values(["match_id", "index"]).copy()
     ev["t"] = timestamp_seconds(ev["timestamp"])
@@ -272,17 +308,33 @@ def build_corner_dataset(
                 assign_regret=assign.confidence,
             )  # fmt: skip
 
+        # Soft-label ingredients: excess cost per candidate (assignment if available,
+        # else distance to the touch location), in yards.
+        if assign is not None and assign.status != "no_candidates":
+            excess = assignment_excess_costs(cand_xy, after_xy, after_actor, max_move_yards(dt))
+        elif len(cand_xy):
+            d = np.linalg.norm(cand_xy - target, axis=1)
+            excess = d - d.min()
+        else:
+            excess = np.array([])
+        row.update(
+            soft_player_idx=cand["player_idx"].astype(int).tolist(),
+            soft_excess=[float(e) for e in excess],
+        )
+
+        # Goalkeepers are flagged in every frame. If the keeper touched it, the label is exact.
+        keepers = cand[cand["keeper"]] if "keeper" in cand else cand.iloc[:0]
+        if touch.get("position") == "Goalkeeper" and len(keepers) == 1:
+            k = int(keepers["player_idx"].iloc[0])
+            row.update(label_status="ok", receiver_idx=k, label_method="keeper",
+                       soft_player_idx=[k], soft_excess=[0.0])  # fmt: skip
+            rows.append(row)
+            continue
+
         # Combine the two methods (thresholds chosen in the M0 audit):
         #  - assignment is trusted when its regret clears `min_regret`,
         #  - nearest is trusted when unambiguous and assignment doesn't point elsewhere,
         #  - if both are confident but disagree, drop the corner ("conflict").
-        # Goalkeepers are flagged in every frame. If the keeper touched it, the label is exact.
-        keepers = cand[cand["keeper"]] if "keeper" in cand else cand.iloc[:0]
-        if touch.get("position") == "Goalkeeper" and len(keepers) == 1:
-            row.update(label_status="ok", receiver_idx=int(keepers["player_idx"].iloc[0]),
-                       label_method="keeper")  # fmt: skip
-            rows.append(row)
-            continue
 
         near_idx = row["nearest_idx"] if near.status == "ok" else None
         assign_idx = row.get("assign_idx") if assign is not None and assign.status == "ok" else None

@@ -1,7 +1,13 @@
 import numpy as np
 import pandas as pd
 
-from phds.data.labels import build_corner_dataset, link_by_assignment, nearest_player
+from phds.data.labels import (
+    assignment_excess_costs,
+    build_corner_dataset,
+    link_by_assignment,
+    nearest_player,
+    soft_label,
+)
 
 
 def test_nearest_player_ok():
@@ -174,3 +180,33 @@ def test_goalkeeper_touch_uses_keeper_flag():
     out = build_corner_dataset(events, players, frames).iloc[0]
     assert out["nearest_idx"] == 3
     assert (out["label_method"], out["receiver_idx"], out["label_status"]) == ("keeper", 4, "ok")
+
+
+def test_excess_costs_consistent_with_regret():
+    before = np.array([[110, 40], [104, 42], [100, 30]])
+    after = np.array([[104.5, 40], [100, 50], [99, 31]])
+    ex = assignment_excess_costs(before, after, after_actor=0, max_move=16.5)
+    link = link_by_assignment(before, after, after_actor=0, max_move=16.5)
+    assert ex[link.idx] == 0.0
+    np.testing.assert_allclose(np.sort(ex)[1], link.confidence, atol=1e-9)
+
+
+def test_soft_label_temperature_limits():
+    ex = np.array([0.0, 1.0, 5.0])
+    np.testing.assert_allclose(soft_label(ex, 1e-9), [1, 0, 0], atol=1e-9)
+    assert np.isclose(soft_label(ex, 1.0).sum(), 1.0)
+    np.testing.assert_allclose(soft_label(ex, 1e9), [1 / 3] * 3, atol=1e-6)
+
+
+def test_corner_rows_carry_soft_label_candidates():
+    events = pd.DataFrame(
+        [
+            _event(0, 1.0, "Pass", 10, 120.0, 0.1, pass_type="Corner", pass_end_x=110.0,
+                   pass_end_y=41.0, pass_outcome="Complete"),
+            _event(1, 2.0, "Ball Receipt*", 10, 110.5, 40.5),
+        ]
+    )  # fmt: skip
+    players, frames = _frame("e0")
+    out = build_corner_dataset(events, players, frames).iloc[0]
+    assert out["soft_player_idx"] == [1, 2]  # attacking candidates, taker excluded
+    assert out["soft_excess"][0] == 0.0 and out["soft_excess"][1] > 0

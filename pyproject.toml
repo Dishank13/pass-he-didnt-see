@@ -18,6 +18,9 @@ dependencies = [
   "tqdm>=4.66",
   "pyyaml>=6.0",
   "scipy>=1.11",
+  "scikit-learn>=1.4",
+  "lightgbm>=4.3",
+  "torch>=2.2",  # CPU build: pip install torch --index-url https://download.pytorch.org/whl/cpu
 ]
 
 [project.optional-dependencies]
