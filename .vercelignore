@@ -1,0 +1,6 @@
+# Only the demo app is deployed. Everything else (1.3 GB of data, venv, notebooks) stays local.
+/*
+!/app
+!/vercel.json
+/app/node_modules
+/app/dist
