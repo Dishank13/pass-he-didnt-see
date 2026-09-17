@@ -1,9 +1,36 @@
-# The Pass He Didn't See
+<div align="center">
 
-**Given where every visible player stood at the moment of a pass, what was the best option, and how does
-the pass actually played compare?** A mini [TacticAI](https://www.nature.com/articles/s41467-024-45965-x) built
-on free data: StatsBomb 360 freeze frames for 426 matches, plus SkillCorner broadcast tracking to measure
-what those snapshots miss.
+# ⚽ The Pass He Didn't See
+
+**What was the best pass on, and how does the one actually played compare?**
+
+A mini [TacticAI](https://www.nature.com/articles/s41467-024-45965-x) built entirely on free data: StatsBomb 360 freeze frames<br/>
+for 426 matches, plus SkillCorner broadcast tracking to measure what those snapshots miss.
+
+[![Live demo](https://img.shields.io/badge/Live_demo-pass--he--didnt--see.vercel.app-F5C518?style=for-the-badge&logo=vercel&logoColor=black)](https://pass-he-didnt-see.vercel.app)
+
+![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=flat-square&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![LightGBM](https://img.shields.io/badge/LightGBM-02569B?style=flat-square)
+![React](https://img.shields.io/badge/React_+_TypeScript-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Tests](https://img.shields.io/badge/tests-68_passing-2EA043?style=flat-square&logo=pytest&logoColor=white)
+![CPU only](https://img.shields.io/badge/runs_on-a_laptop_CPU-475569?style=flat-square)
+
+<a href="https://pass-he-didnt-see.vercel.app"><img src="docs/img/demo-explore.png" alt="Demo app: exploring passing options in the Euro 2024 final" width="100%" /></a>
+
+</div>
+
+## At a glance
+
+| | |
+|---|---|
+| 🎯 **Pass completion model** | AUC **0.912**, isotonic-calibrated, on held-out Euro 2024 |
+| 📊 **Scale** | **1.36M** freeze frames · **1.5M** passing options valued out-of-fold |
+| 🧠 **Corner first touch (GNN)** | top-3 accuracy **55%** vs 16% chance; beats LightGBM at predicting which team wins it |
+| 🎥 **What snapshots miss** | dropping velocities costs only ΔAUC **0.006**, and the model transfers to another league (AUC 0.841) |
+| 🧪 **Rigour** | tournament-level hold-out · cluster-bootstrap CIs · baselines first · mistakes documented |
+
+## A moment from the model
 
 ![Euro 2024 final, 72': Bellingham's lay-off to Palmer and the best plausible alternative](reports/m2/moment_0263fb5f.png)
 
