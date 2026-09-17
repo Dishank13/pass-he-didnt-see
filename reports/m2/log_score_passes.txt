@@ -1,0 +1,37 @@
+fold 0: fitting on 163,183 passes
+score fold 0:   0%|          | 0/56846 [00:00<?, ?it/s]score fold 0:  17%|█▋        | 9386/56846 [00:30<02:31, 312.86it/s]score fold 0:  17%|█▋        | 9386/56846 [00:40<02:31, 312.86it/s]score fold 0:  34%|███▍      | 19397/56846 [01:00<01:55, 325.12it/s]score fold 0:  34%|███▍      | 19397/56846 [01:10<01:55, 325.12it/s]score fold 0:  51%|█████▏    | 29184/56846 [01:30<01:24, 325.62it/s]score fold 0:  51%|█████▏    | 29184/56846 [01:40<01:24, 325.62it/s]score fold 0:  69%|██████▉   | 39340/56846 [02:00<00:52, 330.70it/s]score fold 0:  69%|██████▉   | 39340/56846 [02:10<00:52, 330.70it/s]score fold 0:  88%|████████▊ | 49872/56846 [02:30<00:20, 338.04it/s]score fold 0:  88%|████████▊ | 49872/56846 [02:40<00:20, 338.04it/s]score fold 0: 100%|██████████| 56846/56846 [02:50<00:00, 332.79it/s]
+fold 1: fitting on 165,405 passes
+score fold 1:   0%|          | 0/54624 [00:00<?, ?it/s]score fold 1:  22%|██▏       | 12166/54624 [00:30<01:44, 405.53it/s]score fold 1:  22%|██▏       | 12166/54624 [00:47<01:44, 405.53it/s]score fold 1:  44%|████▎     | 23803/54624 [01:00<01:17, 395.15it/s]score fold 1:  44%|████▎     | 23803/54624 [01:17<01:17, 395.15it/s]score fold 1:  65%|██████▍   | 35431/54624 [01:30<00:49, 391.69it/s]score fold 1:  65%|██████▍   | 35431/54624 [01:47<00:49, 391.69it/s]score fold 1:  87%|████████▋ | 47537/54624 [02:00<00:17, 396.36it/s]score fold 1:  87%|████████▋ | 47537/54624 [02:17<00:17, 396.36it/s]score fold 1: 100%|██████████| 54624/54624 [02:18<00:00, 393.83it/s]
+fold 2: fitting on 166,978 passes
+score fold 2:   0%|          | 0/53051 [00:00<?, ?it/s]score fold 2:  23%|██▎       | 12145/53051 [00:30<01:41, 404.83it/s]score fold 2:  23%|██▎       | 12145/53051 [00:43<01:41, 404.83it/s]score fold 2:  43%|████▎     | 22653/53051 [01:00<01:21, 372.72it/s]score fold 2:  43%|████▎     | 22653/53051 [01:13<01:21, 372.72it/s]score fold 2:  64%|██████▍   | 33924/53051 [01:30<00:51, 374.07it/s]score fold 2:  64%|██████▍   | 33924/53051 [01:43<00:51, 374.07it/s]score fold 2:  86%|████████▌ | 45669/53051 [02:00<00:19, 380.95it/s]score fold 2:  86%|████████▌ | 45669/53051 [02:13<00:19, 380.95it/s]score fold 2: 100%|██████████| 53051/53051 [02:17<00:00, 386.38it/s]
+fold 3: fitting on 164,521 passes
+score fold 3:   0%|          | 0/55508 [00:00<?, ?it/s]score fold 3:  22%|██▏       | 11987/55508 [00:30<01:48, 399.54it/s]score fold 3:  22%|██▏       | 11987/55508 [00:40<01:48, 399.54it/s]score fold 3:  43%|████▎     | 23745/55508 [01:00<01:20, 395.05it/s]score fold 3:  43%|████▎     | 23745/55508 [01:10<01:20, 395.05it/s]score fold 3:  63%|██████▎   | 35059/55508 [01:30<00:52, 386.86it/s]score fold 3:  63%|██████▎   | 35059/55508 [01:40<00:52, 386.86it/s]score fold 3:  85%|████████▍ | 46906/55508 [02:00<00:22, 390.03it/s]score fold 3:  85%|████████▍ | 46906/55508 [02:10<00:22, 390.03it/s]score fold 3: 100%|██████████| 55508/55508 [02:21<00:00, 391.84it/s]
+selection model: mean P(actual option) 0.456
+selection top-1 0.580, top-3 0.904
+Traceback (most recent call last):
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3641, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 168, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 197, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7668, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7676, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'pct_goal10'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\scripts\score_passes.py", line 154, in <module>
+    main()
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\scripts\score_passes.py", line 139, in main
+    dec = decisions(opts, passes, args.plausible)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\scripts\score_passes.py", line 78, in decisions
+    rows[f"choice_pct_{v}"] = rows["event_id"].map(act[f"pct_{v}"])
+                                                   ~~~^^^^^^^^^^^^
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\.venv\Lib\site-packages\pandas\core\frame.py", line 4378, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3648, in get_loc
+    raise KeyError(key) from err
+KeyError: 'pct_goal10'

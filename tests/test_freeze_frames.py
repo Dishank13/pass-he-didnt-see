@@ -51,3 +51,13 @@ def test_missing_visible_area_gives_nan_area():
     rec = {"event_uuid": "e2", "visible_area": [], "freeze_frame": []}
     _, frames = parse_three_sixty([rec], match_id=99)
     assert frames[0]["n_players"] == 0 and frames[0]["visible_frac"] != frames[0]["visible_frac"]
+
+
+def test_visible_area_polygon_accepts_numpy_arrays():
+    import numpy as np
+
+    from phds.data.freeze_frames import visible_area_polygon
+
+    poly = visible_area_polygon(np.array([0, 0, 60, 0, 60, 80, 0, 80, 0, 0], dtype=np.float32))
+    assert abs(poly.area - 4800) < 1e-6
+    assert visible_area_polygon(np.array([], dtype=np.float32)) is None

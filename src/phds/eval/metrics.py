@@ -56,24 +56,27 @@ def brier_each(p: np.ndarray, y: np.ndarray) -> np.ndarray:
     return (p - y) ** 2
 
 
-def auc(p: np.ndarray, y: np.ndarray) -> float:
-    return float(roc_auc_score(y, p)) if 0 < y.sum() < len(y) else np.nan
+def auc(p: np.ndarray, y: np.ndarray, w: np.ndarray | None = None) -> float:
+    return float(roc_auc_score(y, p, sample_weight=w)) if 0 < y.sum() < len(y) else np.nan
 
 
-def reliability_bins(p: np.ndarray, y: np.ndarray, n_bins: int = 10):
-    """Equal-mass bins: (mean predicted, observed rate, count) per bin.
+def reliability_bins(p: np.ndarray, y: np.ndarray, n_bins: int = 10, w: np.ndarray | None = None):
+    """Equal-mass bins: (mean predicted, observed rate, total weight) per bin.
 
-    Equal-mass (quantile) bins, not equal-width: with a ~37% base rate most predictions
-    sit in 0.2-0.5, and equal-width bins would leave the extremes nearly empty and noisy.
+    Equal-mass (quantile) bins, not equal-width: predictions usually concentrate in a
+    narrow range, and equal-width bins would leave the extremes nearly empty and noisy.
+    Optional sample weights `w` (e.g. selection-correction weights).
     """
+    w = np.ones_like(p, dtype=float) if w is None else np.asarray(w, float)
     order = np.argsort(p)
     bins = np.array_split(order, n_bins)
-    return [(p[b].mean(), y[b].mean(), len(b)) for b in bins if len(b)]
+    return [(np.average(p[b], weights=w[b]), np.average(y[b], weights=w[b]), w[b].sum())
+            for b in bins if len(b) and w[b].sum() > 0]  # fmt: skip
 
 
-def ece(p: np.ndarray, y: np.ndarray, n_bins: int = 10) -> float:
-    """Expected calibration error: count-weighted |predicted - observed| over bins."""
-    rows = reliability_bins(p, y, n_bins)
+def ece(p: np.ndarray, y: np.ndarray, n_bins: int = 10, w: np.ndarray | None = None) -> float:
+    """Expected calibration error: weight-averaged |predicted - observed| over bins."""
+    rows = reliability_bins(p, y, n_bins, w)
     n = sum(c for _, _, c in rows)
     return float(sum(c * abs(pm - om) for pm, om, c in rows) / n)
 
@@ -107,6 +110,13 @@ def cluster_bootstrap(
 def mean_ci(values: np.ndarray, groups: np.ndarray, **kw) -> tuple[float, float, float]:
     """Cluster-bootstrap CI for the mean of a per-corner metric."""
     return cluster_bootstrap(lambda idx: float(values[idx].mean()), groups, **kw)
+
+
+def weighted_mean_ci(values: np.ndarray, weights: np.ndarray, groups: np.ndarray, **kw):
+    """Cluster-bootstrap CI for a weighted mean of a per-example metric."""
+    return cluster_bootstrap(
+        lambda idx: float(np.average(values[idx], weights=weights[idx])), groups, **kw
+    )
 
 
 def paired_diff_ci(a: np.ndarray, b: np.ndarray, groups: np.ndarray, **kw):

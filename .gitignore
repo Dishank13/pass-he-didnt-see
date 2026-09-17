@@ -12,3 +12,5 @@ app/dist/
 *.egg-info/
 *.log
 .claude-flow/
+reports/m2/*predictions*.npz
+reports/m2/*predictions*.npz

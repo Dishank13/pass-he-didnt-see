@@ -1,0 +1,10 @@
+train 190,706 passes | eval (test) 29,323 passes
+  distance  logloss 0.349 [0.328, 0.370]  brier 0.101 [0.093, 0.109]  auc 0.649 [0.632, 0.665]  ece 0.0122  mean pred 0.870 vs observed 0.880
+  physics   logloss 0.241 [0.224, 0.259]  brier 0.073 [0.067, 0.079]  auc 0.891 [0.879, 0.903]  ece 0.0108  mean pred 0.880 vs observed 0.880
+  lgbm_raw  logloss 0.220 [0.201, 0.238]  brier 0.066 [0.060, 0.072]  auc 0.913 [0.903, 0.922]  ece 0.0129  mean pred 0.893 vs observed 0.880
+  lgbm      logloss 0.220 [0.203, 0.236]  brier 0.066 [0.061, 0.072]  auc 0.912 [0.903, 0.922]  ece 0.0108  mean pred 0.880 vs observed 0.880
+  log loss physics - distance: -0.1075 [-0.1178, -0.0976]
+  log loss lgbm - physics: -0.0216 [-0.0246, -0.0186]
+  log loss lgbm - lgbm_raw: 0.0002 [-0.0016, 0.0021]
+top features (gain share): {'lane_min_perp': 0.198, 'physics_margin': 0.126, 'lane_margin': 0.092, 'target_margin': 0.071, 'target_opp_nearest': 0.059, 'target_dist_goal': 0.054, 'passer_opp_nearest': 0.051, 'dx': 0.04}
+-> C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\reports\m2

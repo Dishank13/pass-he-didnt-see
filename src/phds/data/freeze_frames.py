@@ -97,7 +97,7 @@ def parse_event(e: dict, match_id: int) -> dict:
 
 def visible_area_polygon(flat: list[float]) -> Polygon | None:
     """StatsBomb stores the polygon as a flat [x1, y1, x2, y2, ...] list."""
-    if not flat or len(flat) < 6:
+    if flat is None or len(flat) < 6:  # Parquet returns numpy arrays: no truthiness test
         return None
     ring = np.asarray(flat, dtype=float).reshape(-1, 2)
     return Polygon(ring).buffer(0)  # buffer(0) repairs occasional self-intersections

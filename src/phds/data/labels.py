@@ -151,6 +151,28 @@ def soft_label(excess: np.ndarray, temperature: float = 1.0) -> np.ndarray:
     return p / p.sum()
 
 
+def combine_links(near: LinkResult, near_idx, assign: LinkResult | None, assign_idx):
+    """Combine the two linking methods into one label (thresholds chosen in the M0 audit).
+
+    * a confident assignment wins;
+    * otherwise a confident nearest match counts if the assignment doesn't point elsewhere;
+    * if both are confident but disagree, the example is dropped ("conflict").
+
+    `near_idx` / `assign_idx` are the linked ids (e.g. player_idx) for the two results.
+    Returns (status, linked id or None, method).
+    """
+    n_ok = near_idx if near.status == "ok" else None
+    a_ok = assign_idx if assign is not None and assign.status == "ok" else None
+    if a_ok is not None and n_ok is not None and a_ok != n_ok:
+        return "conflict", None, "both"
+    if a_ok is not None:
+        return "ok", a_ok, "assign"
+    if n_ok is not None and (assign is None or assign.idx is None or assign_idx == n_ok):
+        return "ok", n_ok, "nearest"
+    status = assign.status if assign is not None else near.status
+    return status, None, "assign" if assign is not None else "nearest"
+
+
 def timestamp_seconds(ts: pd.Series) -> pd.Series:
     """'HH:MM:SS.mmm' (clock within a period) -> float seconds."""
     parts = ts.str.split(":", expand=True).astype(float)
@@ -331,23 +353,9 @@ def build_corner_dataset(
             rows.append(row)
             continue
 
-        # Combine the two methods (thresholds chosen in the M0 audit):
-        #  - assignment is trusted when its regret clears `min_regret`,
-        #  - nearest is trusted when unambiguous and assignment doesn't point elsewhere,
-        #  - if both are confident but disagree, drop the corner ("conflict").
-
-        near_idx = row["nearest_idx"] if near.status == "ok" else None
-        assign_idx = row.get("assign_idx") if assign is not None and assign.status == "ok" else None
-        if assign_idx is not None and near_idx is not None and assign_idx != near_idx:
-            status, receiver, method = "conflict", None, "both"
-        elif assign_idx is not None:
-            status, receiver, method = "ok", assign_idx, "assign"
-        elif near_idx is not None and (assign is None or assign.idx is None
-                                       or row["assign_idx"] == near_idx):
-            status, receiver, method = "ok", near_idx, "nearest"
-        else:
-            status = assign.status if assign is not None else near.status
-            receiver, method = None, "assign" if assign is not None else "nearest"
+        status, receiver, method = combine_links(
+            near, row["nearest_idx"], assign, row.get("assign_idx") if assign is not None else None
+        )
         row.update(label_status=status, receiver_idx=receiver, label_method=method)
         rows.append(row)
     return pd.DataFrame(rows)

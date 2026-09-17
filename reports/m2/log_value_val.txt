@@ -1,0 +1,11 @@
+train 617,545 actions | eval (val) 116,083 | score rate 0.0111, concede rate 0.0020
+  loc  scores   logloss 0.0521 [0.0465, 0.0587]  auc 0.772 [0.748, 0.798]  ece 0.0016
+  loc  concedes logloss 0.0137 [0.0109, 0.0165]  auc 0.784 [0.735, 0.825]  ece 0.0004
+  ctx  scores   logloss 0.0509 [0.0454, 0.0578]  auc 0.792 [0.771, 0.812]  ece 0.0008
+  ctx  concedes logloss 0.0130 [0.0104, 0.0158]  auc 0.827 [0.783, 0.863]  ece 0.0005
+  poss_loc R2 vs train mean 0.0402 [0.0293, 0.0530]  rmse 0.0996  deciles pred->obs [(-0.005, -0.005), (0.005, 0.008), (0.047, 0.047)]
+  poss_ctx R2 vs train mean 0.0515 [0.0397, 0.0647]  rmse 0.0990  deciles pred->obs [(-0.007, -0.009), (0.005, 0.004), (0.048, 0.049)]
+  poss_value MSE ctx - loc: -0.000117 [-0.000168, -0.000070]
+  scores log loss ctx - loc: -0.00115 [-0.00165, -0.00071]
+  concedes log loss ctx - loc: -0.00074 [-0.00123, -0.00029]
+-> C:\Users\Dr. Chaitali Shah\Documents\Dishank\Football Pass Predictor\reports\m2
